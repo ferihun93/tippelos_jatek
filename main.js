@@ -6,7 +6,7 @@ const generalGomb = document.getElementById('ertekGeneralo');
 let currentMessage = null;
 let lives = 10; 
 const heart = 'images/heart.jpg';
-const heartUres = 'images/ures_sziv.png'
+const heartUres = 'images/ures_sziv.jpg'
 
 
 function addImageToPage() {
@@ -44,6 +44,7 @@ function generateNumber() {
     hideAllParagraphs();
     // document.getElementById('kitalalt').value = randomNumber;
     console.log('Generált szám:', randomNumber);  // Ellenőrzés a konzolon
+    document.getElementById('tipp_button').disabled = false;
 }
 
 
@@ -62,12 +63,15 @@ function tipp() {
     const gameOver = document.createElement('p');
     const generalGomb = document.getElementById('ertekGeneralo');
     const undefinedError = document.createElement('p');
+    const tippButton = document.getElementById('tipp_button');
+
     showAllParagraphs();
     console.log('Tippelt szám:', guess);  // Ellenőrzés a konzolon
     console.log('Generált szám összehasonlításhoz:', randomNumber);  // Ellenőrzés a konzolon
 
     if (lives === 0) {
-        newGameButton();  // "New game" gomb megjelenítése
+        // newGameButton();  // "New game" gomb megjelenítése
+        // document.getElementById('ertekGeneralo').disabled=true;
         return; // Stop further execution
     }
 
@@ -89,11 +93,17 @@ function tipp() {
         probalkozas++;
         eletVeszites();
     } else {
-        eletVeszites();
+        document.getElementById('tipp_button').disabled = true;
         hirdeto();
-        newGameButton();  // "New game" gomb megjelenítése, ha helyes a tipp
+        // newGameButton();  // "New game" gomb megjelenítése, ha helyes a tipp
     }
 }
+
+// function gombDisable(){
+//     if(lives===0 || guess === randomNumber){
+//         document.getElementById('tipp_button').disabled = false;
+//     }
+// }
 
 function replaceMessage(newMessage) {
     if (currentMessage) {
@@ -104,33 +114,33 @@ function replaceMessage(newMessage) {
     currentMessage = newMessage;
 }
 
-function newGameButton() {
-    // Hozz létre egy új gomb elemet
-    const button = document.createElement('button');
-    const newGameMessage = document.createElement('p');
-    const generalGomb = document.getElementById('ertekGeneralo');
-    const newGameButton = document.getElementById('newgamebutton');
+// function newGameButton() {
+//     // Hozz létre egy új gomb elemet
+//     const button = document.createElement('button');
+//     const newGameMessage = document.createElement('p');
+//     const generalGomb = document.getElementById('ertekGeneralo');
+//     const newGameButton = document.getElementById('newgamebutton');
 
-    if (newGameButton) {
-        newGameButton.remove();
-    }
+//     if (newGameButton) {
+//         newGameButton.remove();
+//     }
 
-    // Állítsd be a gomb szövegét
-    button.textContent = "New game";
-    button.id = "newgamebutton";
+//     // Állítsd be a gomb szövegét
+//     button.textContent = "New game";
+//     button.id = "newgamebutton";
 
-    // Állítsd be az onclick esemény kezelőt
-    button.onclick = function() {
-        resetProbalkozas();  // Visszaállítjuk a próbálkozások számát
-        button.remove();  // A gomb eltávolítása
-        newGameMessage.textContent = "Új játék elindítva";
-        replaceMessage(newGameMessage);
-        generateNumber();  // Új szám generálása
-        addNewButton();
-    };
+//     // Állítsd be az onclick esemény kezelőt
+//     button.onclick = function() {
+//         resetProbalkozas();  // Visszaállítjuk a próbálkozások számát
+//         button.remove();  // A gomb eltávolítása
+//         newGameMessage.textContent = "Új játék elindítva";
+//         replaceMessage(newGameMessage);
+//         generateNumber();  // Új szám generálása
+//         addNewButton();
+//     };
 
-    div.appendChild(button);
-}
+//     div.appendChild(button);
+// }
 
 // function resetInput() {
 //     document.getElementById("kitalalt").value = "";  // Az input mező tartalmának ürítése
@@ -152,8 +162,9 @@ function eletVeszites() {
         const gameOver = document.createElement('p');
         gameOver.textContent = `A játéknak vége, veszítettél a kitalált szám a(z) ${randomNumber} volt.`;
         replaceMessage(gameOver);
+        document.getElementById('tipp_button').disabled = true;
         // resetInput();
-        newGameButton();  // Megjeleníti a "New game" gombot, ha az életek száma 0
+        // newGameButton();  // Megjeleníti a "New game" gombot, ha az életek száma 0
     }
     console.log("Életek száma:", lives);
 }
@@ -171,6 +182,7 @@ function addNewButton() {
     button.onclick = generateNumber;
     button.id = "ertekGeneralo";
     imageContainer.insertAdjacentElement('afterend', button);
+    document.getElementById('tipp_button').disabled = false;
 }
 
 function removeAllImages() {

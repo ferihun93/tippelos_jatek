@@ -8,6 +8,10 @@ html{
     padding: 10rem;
 }
 
+body{
+    min-width: 1000px;
+}
+
 p{
     margin-top: 5rem;
     border: solid black 1px;
@@ -36,5 +40,9 @@ button{
 
 .ures_sziv{
     height: 52px;
-    width: 56px;
+    width: 50px;
+}
+
+#ertekGeneralo{
+    margin-right: 5rem;
 }
