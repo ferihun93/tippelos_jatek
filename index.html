@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Szám Kitaláló Játék</title>
+</head>
+<body id="body">
+    <div id="imageContainer"></div>
+    <button id="ertekGeneralo" onclick="generateNumber()">Generálj egy számot!</button>
+
+    <input type="number" min="1" id="tipp_ertek" placeholder="Írd be a tipped">
+    <button onclick="tipp()">Tipp</button>
+
+    <div id="container"></div>
+    <section id="cheat_section">
+        <label for="">Cheat kód:</label>
+        <input type="text" name="" id="cheat">
+        <button onclick="cheatKod()">ok</button>
+    </section>
+    <script src="main.js"></script>
+</body>
+</html>

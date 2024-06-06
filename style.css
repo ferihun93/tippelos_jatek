@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    margin: 0 auto 0;
+    padding: 10rem;
+}
+
+p{
+    margin-top: 5rem;
+    border: solid black 1px;
+    width: fit-content;
+    padding: 1rem;
+    background-color: yellow;
+    font-size: larger;
+}
+
+img{
+    width: 50px;
+}
+
+#imageContainer{
+    margin-bottom: 3rem;
+}
+
+#cheat_section{
+    margin-top: 2rem;
+}
+
+button{
+    padding: 5px;
+    
+}
+
+.ures_sziv{
+    height: 52px;
+    width: 56px;
+}
