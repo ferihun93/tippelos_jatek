@@ -46,3 +46,18 @@ button{
 #ertekGeneralo{
     margin-right: 5rem;
 }
+
+@media screen and (max-width: 600px){
+    #imageContainer{
+        display: flex;
+        flex-wrap: wrap;
+        width: 300px;
+    }
+    
+    body{
+        width: 100px;
+        border: red solid 1px;
+        min-width: 350px;
+        margin: 0 auto 0;
+    }
+}
