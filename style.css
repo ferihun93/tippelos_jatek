@@ -56,7 +56,6 @@ button{
     
     body{
         width: 100px;
-        border: red solid 1px;
         min-width: 350px;
         margin: 0 auto 0;
     }
