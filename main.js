@@ -68,6 +68,7 @@ function generateNumber() {
     randomNumber = szamKitalalo();
     addImageToPage();
     hideAllParagraphs();
+    feladatszovegEltunteto();
     console.log('Generált szám:', randomNumber);  // Logging the generated number for debugging
     document.getElementById('tipp_button').disabled = false;
 }
@@ -187,4 +188,9 @@ function addNewButton() {
     const imageContainer = document.getElementById('imageContainer');
     imageContainer.insertAdjacentElement('afterend', button);
     document.getElementById('tipp_button').disabled = false;
+}
+
+function feladatszovegEltunteto(){
+    const felSzoveg = document.getElementById('feladatszoveg');
+    felSzoveg.style.display = 'none';
 }

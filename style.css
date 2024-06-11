@@ -55,8 +55,12 @@ button{
     }
     
     body{
-        width: 100px;
         min-width: 350px;
         margin: 0 auto 0;
+        margin-left: 0px;
     }
+}
+
+h2{
+    margin-bottom: 3rem;
 }
