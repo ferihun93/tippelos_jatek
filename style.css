@@ -51,16 +51,20 @@ button{
     #imageContainer{
         display: flex;
         flex-wrap: wrap;
-        width: 300px;
+        width: 100%;
     }
     
     body{
         min-width: 350px;
-        margin: 0 auto 0;
-        margin-left: 0px;
+        margin: 0 auto;
+        overflow-x: hidden; /* Prevents horizontal scrolling */
     }
 }
 
 h2{
     margin-bottom: 3rem;
+}
+
+#tipp_ertek{
+    width: 9rem;
 }

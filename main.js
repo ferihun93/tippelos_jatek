@@ -2,7 +2,8 @@
 let randomNumber;
 let probalkozas = 0;
 let currentMessage = null;
-let lives = 10; 
+let lives = 10;
+//let countGamesStarted = 0;
 
 const heart = 'images/heart.jpg';
 const heartUres = 'images/ures_sziv.jpg';
@@ -46,13 +47,7 @@ function tipp() {
     } else {
         tippButton.disabled = true;
         jatekosNyert();
-        szorzas(5);
     }
-}
-
-
-function szorzas(a = 5, b){
-    return console.log("A szorzás eredménye: ", a * b);
 }
 
 
@@ -71,6 +66,9 @@ function generateNumber() {
     feladatszovegEltunteto();
     console.log('Generált szám:', randomNumber);  // Logging the generated number for debugging
     document.getElementById('tipp_button').disabled = false;
+    countGamesStarted++;
+    achivement();
+    console.log("A játékok száma:", countGamesStarted);
 }
 
 
@@ -190,7 +188,13 @@ function addNewButton() {
     document.getElementById('tipp_button').disabled = false;
 }
 
-function feladatszovegEltunteto(){
+function feladatszovegEltunteto() {
     const felSzoveg = document.getElementById('feladatszoveg');
     felSzoveg.style.display = 'none';
+}
+
+function achivement() {
+    if (countGamesStarted === 5) {
+        alert("5 játék lejátszva!");
+    }
 }
