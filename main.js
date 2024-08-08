@@ -145,7 +145,7 @@ function resetProbalkozas() {
 // Cheat code function
 function cheatKod() {
     const cheat = document.getElementById('cheat');
-    if (cheat.value === "zegsz") {
+    if (cheat.value === "süti") {
         lives = 100;
         addImageToPage();
         console.log("Életek:", lives);
